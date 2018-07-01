@@ -1,0 +1,227 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+  <title>Karlyan</title>
+  <meta name="description" content="">
+  <meta name="author" content="VenkatPullela">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-1.11.3.min.js"></script>
+  
+  <script src="js/pre_loaded_data.js"></script>
+  <script src="js/headers.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/actions.js"></script>
+  <script src="js/lookups.js"></script>
+  <script src="js/features.js"></script>
+  <script src="js/switch.js"></script>
+  <script src="js/ff_tool.js"></script>
+
+</head>
+
+<body>
+ <ul id="tabs">
+    <li><a href="#" name="#tab1">Headers</a></li>
+    <li><a href="#" name="#tab2">Parser</a></li>
+    <li><a href="#" name="#tab3">Actions</a></li>
+    <li><a href="#" name="#tab4">Lookups</a></li>
+    <li><a href="#" name="#tab5">Features</a></li>    
+    <li><a href="#" name="#tab6">Switch</a></li>    
+</ul>
+<div id="ff_tab"> 
+  <div id="tab1"> 
+     <br>
+      <button type="button" onclick="loadHeadersFile(event)" id = "load_headers">Load Header File</button>
+      <button type="button" onclick="saveHeadersFile(event)" id = "save_headers">Save Header File</button>
+      Show Grid <input id = "display_grid_cb" type="checkbox" />
+      Text      <input id = "display_text_cb" type="checkbox" />
+      Script    <input id = "display_script_cb" type="checkbox" />
+     <br>
+     Double click on the grid to create a new field 
+     <br>
+     Select a Header
+     <select id = "headers_dl" >
+        <option value="Headers">Select a Header</option>
+        <option value="Create New Header">Create New Header</option>
+     </select>
+     <br>
+      <input type="file" id="header_files" name="headers" multiple />
+      <output id="list"></output>
+     <br>
+    <div id ="grid_area">
+         <canvas id="header_grid" width="256" height="384"> 
+           Your browser does not support HTML5 Canvas. Please use Text mode.
+         </canvas>
+    </div>
+    <div id="text_edit_area">
+         <div id = "fields_area"> </div>
+    </div>
+    <div id="script_edit_area">
+      Select Script Format 
+      <select id = "header_script_format" >
+         <option selected="selected" value="P4">P4</option>
+         <option value="JSON">JSON</option>
+      </select>
+      <div id = "script_area"> 
+         <textarea id = "script_tb" rows="24" cols="40">
+                Script
+         </textarea>
+      </div>
+    </div>
+  </div>
+  <div id="tab2">
+    <br>
+      <button type="button" onclick="loadProtocolsFile(event)" id="load_parser">Load Parser File</button>
+      <button type="button" onclick="saveProtocolsFile(event)" id = "save_parser">Save Parser File</button>
+      Show Script  <input id = "display_prot_script" type="checkbox" />
+      <input type="file" id="protocol_files" name="protocols" />
+      <br>
+      <a>Click on</a>
+           <img src="img/open_folder.png">
+           <img src="img/closed_folder.png">
+      <a> to collapse or expand the tree, </a>
+      <a>Click on </a>
+           <img src="img/edit_folder.png">
+      <a> to enter protocol details, </a>
+      <a>Click on </a>
+           <img src="img/add_child.png">
+      <a> to add a new protocol</a>
+      <br>
+  
+      <div id = "prot_tree_area"> 
+         <div id="root">
+            <div id = "root_head_area"></div>
+            <div id = "root_edit_area"></div>
+            <div id = "root_children_area"></div>
+         </div>
+      </div>
+      <div id="prot_script_area">
+        Select Script Format
+        <select id = "protocol_script_format" > 
+           <option selected="selected" value="P4">P4</option>
+           <option value="JSON">JSON</option>
+        </select>
+        <div>
+           <textarea id = "prot_script_tb" rows="25" cols="40">
+                Script
+           </textarea>
+        </div>
+      </div>
+  </div>
+  <div id="tab3">
+     <br>
+     <button type="button" onclick="loadActionsFile(event)"  id = "load_actions">Load Actions</button>
+     <button type="button" onclick="saveActionsFile(event)" id = "save_actions">Save to File</button>
+     Show Script <input id = "display_actions_script" type="checkbox" />
+     <input type="file" id="actions_files" name="protocols" />
+     <br>
+     <button type="button" id = "add_action">Add Action</button>
+     <br>
+     <div id="actions_area">
+        CONFIDENTIAL - NOT FOR DEMO
+     </div>
+     <div id="actions_script_area">
+        Select Script Format
+        <select id = "actions_script_format" > 
+           <option selected="selected" value="P4">P4</option>
+           <option value="JSON">JSON</option>
+        </select>
+        <div>
+           <textarea id = "actions_script_tb" rows="25" cols="40">
+                Script
+           </textarea>
+        </div>
+     </div>
+  </div>
+  
+  <div id="tab4">
+    <br>
+      <button type="button" onClick = "loadLookupsFile(event)" id = "load_lookups">Load Lookups</button>
+      <button type="button" onClick = "saveLookupsFile(event)" id = "save_features">Save to File</button>
+      <input type="file" id="lookups_files" name="lookups" />
+     Show Script <input id = "display_lookups_script" type="checkbox" />
+     <div id="lookups">
+        <ul id="lookups_menu"></ul>
+     </div>
+     <div id="lookup_edit">
+        Lookup Name 
+        <input type="textbox" id = "lookup_name">
+        Lookup Type 
+        <select id = "lookup_type" >
+        </select> 
+     </div>
+     <div id="all_fields"></div>
+     <div id="io_buttons">
+        <button type="button" onclick="add_input_fields(event)" id="add_input_fields">Input&gt&gt</button>
+        <br>
+        <button type="button" onclick="remove_input_fields(event)" id="remove_input_fields">&lt&ltInput</button>
+        <br>
+        <button type="button" onclick="add_output_fields(event)" id="add_output_fields">Output&gt&gt</button>
+        <br>
+        <button type="button" onclick="remove_output_fields(event)" id="remove_output_fields">&lt&ltOutput</button>
+     </div>
+     <div id="input_output">
+        Input Fields
+        <div id="input_fields"></div>
+        Output Fields
+        <div id="output_fields"></div>
+     </div>
+     <div id="lookups_script_area">
+        Select Script Format
+        <select id = "lookups_script_format" > 
+           <option value="PullelasP4">PullelasP4</option>
+           <option selected="selected" value="JSON">JSON</option>
+        </select>
+        <div>
+           <textarea id = "lookups_script_tb" rows="25" cols="40">
+                Script
+           </textarea>
+        </div>
+     </div>
+  </div>
+  <div id="tab5">
+      <br>
+      <button type="button" onClick = "loadFeaturesFile(event)" id = "load_features">Load Features</button>
+      <button type="button" onClick = "saveFeaturesFile(event)" id = "save_features">Save to File</button>
+      Show Script <input id = "display_features_script" type="checkbox" />
+      <input type="file" id="features_files" name="features" />
+     <br>
+     <button type="button" id = "add_feature">Add Feature</button>
+        
+     <br>
+     <div id="features_area">
+      Build New Features by clicking on <code>Add Feature</code> button
+     </div>
+     <div id="features_script_area">
+        Select Script Format
+        <select id = "features_script_format" > 
+           <option value="PullelasP4">PullelasP4</option>
+           <option selected="selected" value="JSON">JSON</option>
+        </select>
+        <div>
+           <textarea id = "features_script_tb" rows="25" cols="40">
+                Script
+           </textarea>
+        </div>
+      </div>
+  </div>
+  <div id="tab6">
+      <br>
+      <button type="button" onClick = "loadSwitchFile(event)" id = "load_switch">Load Switch</button>
+      <button type="button" onClick = "saveSwitchFile(event)" id = "save_switch">Save to File</button>
+      Show Script <input id = "display_switch_script" type="checkbox" />
+      <input type="file" id="switch_files" name="features" />
+     <br>
+     <button type="button" id = "add_switch">Add Switch</button>
+     <div id="vne_area">  </div>
+     <div id="ports_area"> 
+        <div id="left_ports"> </div>
+        <div id="right_ports"> </div>
+     </div>
+  </div>
+</div>
+</body>
+</html>

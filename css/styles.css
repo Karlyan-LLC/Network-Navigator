@@ -1,0 +1,214 @@
+.nodes {
+  font-size: 20px;
+}
+
+#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 -15px 0 0;
+}
+
+#tabs a {
+  float: left;
+  position: relative;
+  padding: 0 40px;
+  height: 0; 
+  line-height: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #3D3D3D;
+  border-bottom-color: #777\9;
+  opacity: .3;
+  filter: alpha(opacity=30);    
+}
+
+#tabs a:hover,
+#tabs a:focus {
+  border-bottom-color: #2ac7e1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs #current {
+  z-index: 3;
+  border-bottom-color: #3d3d3d;
+  opacity: 1;
+  filter: alpha(opacity=100);   
+}
+
+#header_grid {
+  float : left;
+  margin: 5px 5px 5px 1px;
+}
+
+#text_edit_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+div[id^="pivot_value"] {
+  margin: 5px 5px 5px 5px;
+}
+
+#script_edit_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#prot_script_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#prot_tree_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#actions_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#actions_script_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#features_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#features_script_area {
+  float : left;
+  margin: 5px 5px 5px 5px;
+}
+
+#all_fields {
+  float: left;
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 400px;
+  max-height: 400px;
+  border : 1px solid black;
+  margin : 5px 0px 0px 0px;
+  overflow: scroll;
+}
+
+#io_buttons {
+  float: left;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+#add_input_fields {
+  margin : 80px 0px 0px 5px;
+}
+
+#remove_input_fields {
+  margin : 5px 0px 0px 5px;
+}
+
+#add_output_fields {
+  margin : 160px 0px 0px 5px;
+}
+#remove_output_fields {
+  margin : 5px 0px 0px 5px;
+}
+
+#input_output {
+  float: left;
+  margin : 5px 0px 0px 0px;
+}
+
+#input_output li:hover {
+  background-color: #2ac7e1;
+  border-bottom-color: #2ac7e1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#input_fields {
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 180px;
+  max-height: 180px;
+  border : 1px solid black;
+  margin : 0px 5px 0px 5px;
+  overflow: scroll;
+}
+
+#output_fields {
+  position: relative;
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 180px;
+  max-height: 180px;
+  border : 1px solid black;
+  margin : 0px 5px 0px 5px;
+  overflow: scroll;
+}
+
+#lookups_script_area {
+  float : top;
+  margin: 5px 5px 5px 5px;
+}
+
+#headers_ul li:hover {
+  background-color: #2ac7e1;
+  border-bottom-color: #2ac7e1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#lookups_menu {
+  padding: 0;
+}
+
+#lookup_edit {
+  clear: both;
+  padding: 5px 0px;
+}
+
+ul#lookups_menu li {
+  float: left;
+  background-color: grey;
+  color: white;
+  padding: 5px 15px;
+  text-decoration: none;
+  border-radius: 8px 8px 0 0;
+  margin: 0px 5px 0px 0px;
+  border: 1px solid white;
+  list-style-type: none;
+}
+
+#lookups_menu li:hover {
+  background-color: #2ac7e1;
+}
+
+#left_ports {
+  float: left;
+  min-width: 150px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#right_ports {
+  float: left;
+  min-width: 150px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
